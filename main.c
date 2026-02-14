@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include "converters.h"
+#include "currency.h"
 
 void handleMeasureUnits();
 void handleLength(); 
@@ -7,6 +8,7 @@ void handleMass();
 void handleTemperature();
 void handleTime();
 void handleVolume();
+void handleCurrency();
 
 int main() {
     int option;
@@ -27,7 +29,7 @@ int main() {
         switch (option) {
             case 0 : printf("\nGoodbye!\n"); return 0;
             case 1 : handleMeasureUnits(); break;
-            //case 2 : handleCurrency(); break;
+            case 2 : handleCurrency(); break;
             default: printf("\nOption not found! Please enter a number (0-2) corresponding to one of the options.\n");
         }
     }
@@ -58,8 +60,8 @@ void handleMeasureUnits() {
                 case 1 : handleLength(); break; 
                 case 2 : handleMass(); break;
                 case 3 : handleTemperature(); break; 
-                case 4 : handleTime(); break; /*/
-                case 5 : handleVolume(); break;*/
+                case 4 : handleTime(); break; 
+                case 5 : handleVolume(); break;
                 default: printf("\nOption not found! Please enter a number (0-5) corresponding to one of the options.\n");
             }
     }
@@ -221,3 +223,29 @@ void handleVolume() {
             }
     }
 }   
+
+void handleCurrency() {
+    int curOption;
+    while (1) {
+        printf("\n--------------------------------\n");
+        printf("    $£ Currency Converter €¥\n");
+        printf("--------------------------------\n");
+        
+        printf("1. Convert Currency\n");
+        printf("2. Currency List\n");
+        printf("0. Back to Main Menu\n");
+
+        printf("Select an option: ");
+            if (scanf("%d", &curOption) != 1) {
+                printf("\nInvalid input! Please enter a number (0-2) corresponding to one of the options.\n");
+                while (getchar() != '\n');
+                continue;
+            }
+        switch (curOption) {
+            case 1: convertCurrency(); break;
+            case 2: listCurrencies(); break;
+            case 0: return; break;
+            default: printf("\nInvalid option! Please enter a number (0-2) corresponding to one of the options.\n");
+        }
+    }
+}
