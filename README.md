@@ -1,7 +1,7 @@
 
 # CLI Unit & Currency Converter
 
-C-based Command Line Interface (CLI) application that allows users to perform various unit conversions and check real-time currency exchange rates.
+C-based Command Line Interface (CLI) application that allows users to perform various unit and real-time currency conversions.
 
 ## Features
 
@@ -19,7 +19,7 @@ Perform instant mathematical conversions across various metric and imperial syst
 
 ### 2. Currency Converter (Online)
 
-Fetches real-time exchange rate data using the [Frankfurter API](https://www.frankfurter.app/), internet connection is needed.
+Fetches real-time exchange rate data using the [Frankfurter API](https://www.frankfurter.app/). Internet connection is needed.
 
 * **Convert Currency:** Convert amounts between major world currencies (e.g., EUR to USD, GBP to JPY).
 * **List Currencies:** View a list of all supported currency codes.
