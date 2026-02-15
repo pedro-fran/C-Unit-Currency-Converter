@@ -18,14 +18,15 @@ Perform instant mathematical conversions across various metric and imperial syst
 * **Volume:** Milliliters, Liters, Cubic Meters, Gallons, Quarts, Pints, Cups, Fluid Ounces.
 
 ### 2. Currency Converter (Online)
-Fetches real-time exchange rate data using the [Frankfurter API](https://www.frankfurter.app/).
+
+Fetches real-time exchange rate data using the [Frankfurter API](https://www.frankfurter.app/), internet connection is needed.
 
 * **Convert Currency:** Convert amounts between major world currencies (e.g., EUR to USD, GBP to JPY).
 * **List Currencies:** View a list of all supported currency codes.
 
 ## Prerequisites
 
-To compile and run this project, you need a C compiler and the **libcurl** library installed in your system.
+To compile and run this project, you need a **C compiler** (GCC recommended) and the **libcurl** development library installed in your system.
 
 
 ### Installing libcurl
@@ -35,7 +36,7 @@ To compile and run this project, you need a C compiler and the **libcurl** libra
 sudo apt install libcurl4-openssl-dev
 ```
 
-**Fedora:**
+**Fedora / RedHat:**
 ```bash
 dnf install curl
 ``` 
@@ -45,6 +46,10 @@ dnf install curl
 brew install curl
 ```
 
+**Windows:**
+* Recommended: **WSL** (use Linux instructions).
+* Native MinGW: download curl binaries and configure include/lib paths manually.
+
 ### Compilation
 
 Open your terminal in the project directory. Run the following command to compile all source files and link the `curl` library:
@@ -52,3 +57,42 @@ Open your terminal in the project directory. Run the following command to compil
 ```bash
 gcc main.c converters.c currency.c -o converter -lcurl
 ```
+
+### Usage
+
+Run the program
+
+```bash
+./converter
+```
+
+## Navigation
+
+### **Main Menu:**
+
+* `1` -> Measure Units
+* `2` -> Currencies
+* `0` -> Exit program
+
+### **Unit Conversion Example:**
+
+1. Select **Measure Units** in Main Menu;
+2. Select type of Unit (e.g., `Temperature`) in sub-menu;
+3. Select base Unit for all conversions (e.g., `Celsius`);
+4. Enter value for conversion (e.g., `25.5`).
+
+The program prints the converted value in **all other units** of that category.
+
+### **Currency Conversion Example:**
+
+1. Select **Currencies** in Main Menu;
+2. Select **Convert Currency** in sub-menu;
+3. Enter Source Currency (e.g., `EUR`);
+4. Enter Target Currency (e.g., `USD`);
+5. Enter Amount for conversion (e.g.,  `125.5`).
+
+The program fetches **live data** and prints the result.
+
+## License
+
+This project is open-source. You are free to modify, improve, and distribute it.
